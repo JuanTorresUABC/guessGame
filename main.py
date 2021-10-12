@@ -18,26 +18,24 @@ def humanGuess():
 
 
 
-def computerGuess():
-    number=random.randrange(0,1000)
+def computerGuess(x):
+    low= 1
+    high= x
     flag=False
-    print("Piensa rapido en un numero")
+    print("Piensa rapido en un numero del 1 al 1000")
     while(flag == False):
-        print(number)
-        print("Este es tu numero? ")
-        opc= input("Si | No: ").lower()
-        if(opc=="si"):
+        if low !=high:
+            number=random.randrange(low,high)
+        else:
+            number = low
+        feedback= input(f"Es este {number} tu numero? Correcto | Mayor | Menor: ").lower()
+        if(feedback=="correcto"):
             print("Las computadoras somos mejores que los humanos😉")
             flag=True
-        else:
-            print("Tu numero es mayor o menor al mio? ")
-            opc2=input("Mayor | Menor: ").lower()
-            if(opc2=="mayor"):
-                newNumber=random.randrange(number,1000)
-                number=newNumber
-            else:
-                newNumber=random.randrange(0,number)
-                number=newNumber
+        elif (feedback=="menor"):
+            high=number -1
+        elif (feedback=="mayor"):
+           low=number +1
 
-computerGuess()
+computerGuess(1000)
             
