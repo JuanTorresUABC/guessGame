@@ -16,4 +16,28 @@ def humanGuess():
         else:
             print(f"El numero que escogio es menor {jugador}")
 
-humanGuess()
+
+
+def computerGuess():
+    number=random.randrange(0,1000)
+    flag=False
+    print("Piensa rapido en un numero")
+    while(flag == False):
+        print(number)
+        print("Este es tu numero? ")
+        opc= input("Si | No: ").lower()
+        if(opc=="si"):
+            print("Las computadoras somos mejores que los humanos😉")
+            flag=True
+        else:
+            print("Tu numero es mayor o menor al mio? ")
+            opc2=input("Mayor | Menor: ").lower()
+            if(opc2=="mayor"):
+                newNumber=random.randrange(number,1000)
+                number=newNumber
+            else:
+                newNumber=random.randrange(0,number)
+                number=newNumber
+
+computerGuess()
+            
